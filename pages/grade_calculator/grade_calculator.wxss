@@ -1,0 +1,4 @@
+/* pages/grade_calculator/grade_calculator.wxss */
+page{
+  background-color: white
+}

@@ -1,0 +1,25 @@
+<!--pages/exam_room/exam_room.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我的考场</view>
+</cu-custom>
+
+<view class="cu-form-group solids-bottom">
+	<view class="title ">
+		<image bindtap="but_imag" style="width: 160rpx; height: 50rpx" src="{{image}}"></image>
+	</view> <input class="solids-bottom" maxlength="4" bindinput="bindinput_yzm" placeholder="请输入验证码查询"></input>
+	<button class="cu-btn bg-green shadow margin-left-lg" bindtap="but_define" disabled="{{define_dis}}">确定</button>
+</view>
+<view class="padding-xs bg-white text-xs" style="padding: 0rpx" wx:if="{{error}}">
+	<view class="text-center padding-xs text-red" style="padding: 0rpx">{{error}}</view>
+</view>
+
+<block wx:if="{{url}}">
+<view class="padding-xs bg-white text-xs" style="padding: 0rpx">
+	<view class="text-center padding-xs " style="padding: 0rpx">点击图片可查看大图</view>
+</view>
+<view class="">
+	<image style="width:100%" src="{{url}}" data-index="{{url}}" bindtap="preview" mode="widthFix"> </image>
+</view>
+</block>
+<!-- <text>pages/exam_room/exam_room.wxml</text> -->

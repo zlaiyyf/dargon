@@ -1,0 +1,4 @@
+/* pages/my_curriculum/curriculum.wxss */
+page{
+ background-color: white;
+}

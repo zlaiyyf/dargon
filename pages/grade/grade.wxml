@@ -1,0 +1,108 @@
+<!--pages/grade/grade.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{back_show? false : true}}" isBack="{{back_show? true : false}}">
+	<view slot="content">我的成绩</view>
+	<view wx:if="{{back_show}}" slot="backText">返回</view>
+	<!-- <view wx:if="{{!back_show}}" slot="homeText">首页</view> -->
+
+</cu-custom>
+<view class="bg-white padding-xs solids-bottom">
+	<radio-group class="padding-xs" style="width:100%" bindchange="form_bindchange">
+		<view class="grid col-2 text-center">
+			<view class="padding-lr-xl">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">原始成绩</view>
+					<radio value='0' style="transform:scale(0.7)"></radio>
+				</view>
+			</view>
+			<view class="padding-lr-xl">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">有效成绩</view>
+					<radio value='1' style="transform:scale(0.7)" checked></radio>
+				</view>
+			</view>
+
+		</view>
+	</radio-group>
+</view>
+
+<view class="bg-white padding-xs solids-bottom">
+	<radio-group class="padding-xs" style="width:100%" bindchange="zfx_bindchange">
+		<view class="grid col-2 text-center">
+			<view class="padding-lr-xl">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">主修</view>
+					<radio value='0' style="transform:scale(0.7)" checked></radio>
+				</view>
+			</view>
+			<view class="padding-lr-xl">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">辅修</view>
+					<radio value='1' style="transform:scale(0.7)"></radio>
+				</view>
+			</view>
+		</view>
+	</radio-group>
+</view>
+
+<view class="bg-white padding-xs solids-bottom">
+	<radio-group class="padding-xs" style="width:100%" bindchange="term_bindchange">
+		<view class="grid col-2 text-center">
+			<view class="padding-lr-xl">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">入学以来</view>
+					<radio value='0' style="transform:scale(0.7)"></radio>
+				</view>
+			</view>
+			<view class="padding-lr-xl">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">学年学期</view>
+					<radio value='1' style="transform:scale(0.7) " checked></radio>
+				</view>
+			</view>
+		</view>
+	</radio-group>
+</view>
+<view class="cu-form-group">
+	<view class="title">学年学期</view>
+	<picker mode="multiSelector" bindchange="term_MultiChange" value="{{term_index}}" disabled="{{term_flag==1?false:true}}" range="{{term_dict.key}}">
+		<view class="picker">
+			{{term_dict.key[0][term_index[0]]}},{{term_dict.key[1][term_index[1]]}}
+		</view>
+	</picker>
+</view>
+<view class="cu-form-group solids-bottom">
+	<view class="title ">
+		<image bindtap="but_imag" style="width: 200rpx; height: 55rpx" src="{{image}}"></image>
+	</view> <input maxlength="4" class="solids-bottom" bindinput="bindinput_yzm" placeholder="请输入验证码"></input>
+	<button class="cu-btn bg-green shadow" bindtap="but_define" disabled="{{but_stu}}">确定</button>
+</view>
+
+<view class="padding-xs bg-white text-xs" style="padding: 0rpx" wx:if="{{error}}">
+	<view class="text-center padding-xs text-red" style="padding: 0rpx">{{error}}</view>
+</view>
+
+<view wx:if="{{grade_data.image.length==0 ?false : true}}">
+	<view class="padding-xs bg-white text-xs" style="padding: 0rpx">
+		<view class="text-center padding-xs " style="padding: 0rpx">点击图片可查看大图</view>
+	</view>
+	<view class="bg-white padding-xs">
+		<view class="grid col-1 margin-bottom text-center">
+			<block wx:for="{{grade_data.image}}" wx:key='index'>
+				<view class="padding-xs">{{item.name}}</view>
+				<view class="">
+					<image style="width:100%" src="{{imurl+dir+username+item.url+'.png'}}" data-index="{{imurl+dir+username+item.url+'.png'}}" bindtap="preview" mode="widthFix" binderror="binderror"> </image>
+				</view>
+			</block>
+		</view>
+	</view>
+	<view class="bg-white solids-top" wx:if="{{grade_data.mes.length==0 ?false : true}}">
+		<view class="grid col-4 margin-bottom text-center">
+			<block wx:for="{{mes_list}}" wx:key="index">
+				<view class=" padding-xs solids-bottom solids-right">{{item}}</view>
+				<view class=" padding-xs solids-bottom solids-right">{{grade_data.mes[index]}}</view>
+			</block>
+		</view>
+	</view>
+
+
+</view>

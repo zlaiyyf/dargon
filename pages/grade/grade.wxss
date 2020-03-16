@@ -1,0 +1,4 @@
+/* pages/grade/grade.wxss */
+page{
+  background-color: white;
+}

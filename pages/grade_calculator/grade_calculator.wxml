@@ -1,0 +1,131 @@
+<!--pages/grade_calculator/grade_calculator.wxml-->
+<!-- 绩点计算器 -->
+<cu-custom bgColor="bg-cyan" isCustom="{{back_show? false : true}}" isBack="{{back_show? true : false}}">
+	<view slot="content">绩点计算器</view>
+	<view wx:if="{{back_show}}" slot="backText">返回</view>
+	            <!-- <view wx:if="{{!back_show}}" slot="homeText">首页</view> -->
+
+</cu-custom>
+
+<view class=" ">
+	<view class="grid col-5  text-center">
+		<view class=" padding padding-xs">
+			<text class="text-black text-bold text-lg text-shadow">名称</text>
+		</view>
+		<view class=" padding  padding-xs">
+			<text class="text-black text-bold text-lg text-shadow">分数</text>
+		</view>
+		<view class=" padding  padding-xs">
+			<text class="text-black text-bold text-lg text-shadow">学分</text>
+		</view>
+		<view class=" padding  padding-xs ">
+			<text class="text-black text-bold text-lg text-shadow">补考</text>
+		</view>
+		<view class=" padding  padding-xs text-xl">
+			<text class="cuIcon-infofill   text-gray" bindtap="bindtap_infofill"></text>
+		</view>
+	</view>
+
+	<!-- 分数 -->
+	<form bindsubmit="formSubmit" bindreset="formReset">
+		<view class="grid col-5  text-center padding-bottom-lg">
+			<block wx:for="{{total_list}}" wx:key="index">
+				<view class=" padding-xs solids">
+					<input name="{{'name'+index}}" data-index="{{index}}" placeholder="名称" value="{{item.name}}" bindinput="bindinput_name"></input>
+				</view>
+				<view class="padding-xs solids">
+					<input name="score" data-index="{{index}}" placeholder="分数" value="{{item.score}}" type="digit" bindinput="bindinput_score"></input>
+				</view>
+				<view class="padding-xs solids">
+					<input name="grade" data-index="{{index}}" placeholder="学分" value="{{item.grade}}" type="digit" bindinput="bindinput_grade"></input>
+				</view>
+				<view class="padding-xs solids">
+					<checkbox-group data-index="{{index}}" name="Make_up" bindchange="bindchange_Make_up">
+						<checkbox value="Make_up" class="round red" style="transform:scale(0.7)         " checked="{{item.make_up}}"></checkbox>
+					</checkbox-group>
+				</view>
+				<view class="  padding-xs solids">
+					<view class="">
+						<view wx:if="{{index != 0}}" class="cu-tag bg-red" bindtap="bindtap_close" data-index="{{index}}">
+							<text class="cuIcon-close  text-black"></text>
+						</view>
+						<view class="cu-tag line-red" bindtap="bindtap_add" data-index="{{index}}">
+							<text class="cuIcon-add  text-black"></text>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+
+
+		<!-- 按钮 -->
+		<view class="flex solid-bottom padding-bottom-lg justify-around">
+			<view class="   radius">
+				<button class='cu-btn round bg-red lg ' formType="reset" style="font-size: 40rpx">清空</button>
+			</view>
+			<view class="   radius">
+				<button class='cu-btn round lg bg-blue  ' formType="submit" style="font-size: 40rpx">计算</button>
+			</view>
+		</view>
+	</form>
+
+
+	<!-- 结果 -->
+	<view class="grid col-4  text-center" wx:if="{{result_show}}">
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm ">总课程数</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">{{total_class_num}}</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">通过课程数</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">{{pass_class_num}}</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">获得学分</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">{{total_grade}}</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm ">获得绩点</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm ">{{total_jidain}}</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">获得学分绩点</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm">{{toatal_study_grade}}</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm ">平均学分绩点</text>
+		</view>
+		<view class="padding-xs">
+			<text class="text-black text-bold text-sm ">{{arv_study_grade}}</text>
+		</view>
+	</view>
+</view>
+
+<!-- 信息提示 -->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">提示</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+			<view>1.名称（非必填）</view>
+			<view>2.分数（百分制、必填）</view>
+			<view>3.学分（为科目应该获得学分、必填）</view>
+			<view>4.补考的科目打勾</view>
+			<view>5.计算方法适合山西大学本科</view>
+		</view>
+	</view>
+</view>

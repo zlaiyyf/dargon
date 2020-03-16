@@ -1,0 +1,4 @@
+/* pages/exam_room/exam_room.wxss */
+page{
+  background-color: white;
+}

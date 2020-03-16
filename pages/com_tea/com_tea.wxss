@@ -1,0 +1,4 @@
+/* pages/com_tea/com_tea.wxss */
+page{
+  background-color: white;
+}

@@ -1,0 +1,4 @@
+/* pages/school_cal/school_cal.wxss */
+page{
+  background-color: white
+}

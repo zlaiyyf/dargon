@@ -1,0 +1,9 @@
+.container{
+  width: 750rpx;
+}
+.container swiper{
+  width: 100%;
+}
+.container swiper image{
+  width: 100%;
+}

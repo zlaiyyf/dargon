@@ -1,0 +1,47 @@
+{
+  "pages": [ 
+    "pages/index/index",
+
+    "pages/school_cal/school_cal",
+
+    "pages/study_room/study_room",
+    "pages/grade/grade",
+    "pages/other_curriculum/curriculum",
+    "pages/com_tea/com_tea",
+    "pages/exam_room/exam_room",
+    "pages/my_curriculum/curriculum",
+    "pages/user/user",
+    "pages/about/about",
+    "pages/log/log",
+    "pages/grade_calculator/grade_calculator"
+  ],
+
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "selectedColor": "#1cbbb4",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/tabbar/index.png",
+        "selectedIconPath": "image/tabbar/index1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "image/tabbar/my.png",
+        "selectedIconPath": "image/tabbar/my1.png"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx93c6ff99177729b7",
+    "wx9f4525d552f0debc"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

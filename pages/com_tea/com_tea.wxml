@@ -1,0 +1,65 @@
+<!--pages/com_tea/com_tea.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">评教</view>
+</cu-custom>
+<view class="cu-form-group solids-bottom">
+	<view class="text-xs">点击一键评教快速评教，默认为每个老师打满分</view>
+	<button class="cu-btn bg-green shadow" bindtap="com_tea_but" disabled="{{com_tea_data.length==0?true :false }}">一键评教</button>
+</view>
+<view class="padding text-center text-sl" wx:if="{{com_tea_data.length==0? true:false }}">
+	<view class="padding-xl radius shadow bg-white">未到评教时间</view>
+</view>
+
+<block wx:if="{{com_tea_data.length==0?false : true}}">
+	<view class="flex  p-xs  mb-sm solids-bottom text-center">
+		<view class="flex-treble  padding-sm solids-right radius">课程/环节</view>
+		<view class="flex-twice  padding-sm solids-right radius">教师</view>
+		<view class="flex-sub  padding-sm solids-right radius">状态</view>
+	</view>
+	<view class="flex  p-xs  mb-sm solids-bottom text-center align-center" wx:for="{{com_tea_data}}" wx:key="index">
+		<view class="flex-treble  padding-sm solids-right radius">{{item.course}}</view>
+		<view class="flex-twice  padding-sm solids-right radius">{{item.tea}}</view>
+		<view class="flex-sub  padding-sm solids-right radius {{item.status?'text-green':'text-red'}}">{{item.status?'已评':'未评'}}</view>
+	</view>
+</block>
+
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+	<view class="cu-dialog" style="width: 600rpx">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content text-red"><text class="text-xs">{{error_tip}}</text></view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xs">
+			<view class="cu-form-group flex">
+				<view class="title ">
+					<image bindtap="but_imag" style="width: 200rpx; height: 44rpx" src="{{image}}"></image>
+				</view>
+				<input maxlength="4" class="solids-bottom margin-right-sm" bindinput="bindinput_yzm" placeholder="验证码"></input>
+				<button class="cu-btn bg-green " bindtap="but_fix" >确定</button>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="cu-modal {{modalName1=='Modal'?'show':''}}">
+	<view class="cu-dialog" style="width: 600rpx">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content text-red"><text class="text-xs">{{error_tip}}</text></view>
+		
+		</view>
+		<view class="padding-xs">
+			<view class="cu-form-group flex">
+				<view class="title ">
+					<image bindtap="but_imag" style="width: 200rpx; height: 44rpx" src="{{image}}"></image>
+				</view>
+				<input maxlength="4" class="solids-bottom margin-right-sm" bindinput="bindinput_yzm" placeholder="验证码"></input>
+				<button class="cu-btn bg-green " bindtap="but_fix1">确定</button>
+			</view>
+		</view>
+	</view>
+</view>

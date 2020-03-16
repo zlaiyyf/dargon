@@ -1,0 +1,37 @@
+<!--pages/study_room/study_room.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">自习室</view>
+</cu-custom>
+<view class="cu-form-group">
+	<view class="title">选择教学楼</view>
+	<picker mode="multiSelector" bindchange="xq_js_MultiChange" bindcolumnchange="xq_js_ColumnChange" value="{{xq_js_index}}" range="{{xq_js_dict.key}}">
+		<view class="picker">
+			{{xq_js_dict.key[0][xq_js_index[0]]}}，{{xq_js_dict.key[1][xq_js_index[1]]}}
+		</view>
+	</picker>
+</view>
+<view class="cu-form-group">
+	<view class="title">选择时间</view>
+	<picker mode="multiSelector" bindchange="zc_xq_MultiChange" value="{{zc_xq_index}}" range="{{zc_xq_dict.key}}">
+		<view class="picker">
+			{{zc_xq_dict.key[0][zc_xq_index[0]]}}，{{zc_xq_dict.key[1][zc_xq_index[1]]}},{{zc_xq_dict.key[2][zc_xq_index[2]]}}
+		</view>
+	</picker>
+</view>
+<view class="cu-form-group justify-end solids-bottom">
+	<button class="cu-btn bg-green shadow" bindtap="but_define" disabled="{{but_define}}">确定</button>
+</view>
+
+
+<view class="text-center" >
+				<view class="padding-xs" wx:if="{{zxs_data.length==0 ?true : false }}">没有自习室
+        换个搜索条件吧</view>
+
+<!-- .length==0 ?false : true -->
+<view class="padding-sm flex flex-wrap solids-bottom" wx:if="{{zxs_data.length==0 ?false : true }}">
+	<view class="padding-xs" wx:for="{{zxs_data}}" wx:key="index">
+		<view class="cu-tag radius bg-blue light">{{item}}</view>
+	</view>
+</view>
+</view>

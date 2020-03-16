@@ -1,0 +1,20 @@
+<!--pages/about/about.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">关于</view>
+</cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+	<view class='text-center margin-bottom text-lg  text-grey'>关于龙城山大plus</view>
+	<view class='text-content'>
+		<view>Hi！同学~欢迎使用龙城山大plus！</view>
+		<view class='margin-top-sm'>该项目是山大菌个人开发的是一款微信小程序。一种全新的连接用户与服务的方式，无需下载与安装即可在微信内被便捷地获取和传播，同时具有出色的使用体验。</view>
+
+		<view class='margin-top-sm'>该项目解决的是学校信息分散，导致信息获取不及时。适用于学生和教师，集课表、成绩、考试、空教室、学生查询等功能于一身。</view>
+		<view class='margin-top-sm'>该项目是不收取个人任何费用，如果这个项目有帮到你，多点击一下广告，或者你觉得很赞，可以扫描赞赏码支持一下！（个人项目有资金会走的更长远）</view>
+		<view class='margin-top-sm'>该项目可以免费为山西大学校内官方、非官方公众号提供这些功能，如果有需要可以复制小程序AppID(小程序ID)绑定，这样你的公众号就有了这些便利的功能。<text class="text-red" bindtap="copy">点击复制</text></view>
+		<view class='margin-top-sm'>同学们有好的想法或者生活中的痛点都可以联系山大菌，山大菌会尽可能实现和解决这些。 <button class="text-df" open-type="contact" bindtap="kefu">
+				<text class="text-red " >点击联系客服</text>
+			</button></view>
+		<view class='margin-top-sm'>更多功能敬请期待！</view>
+	</view>
+</view>

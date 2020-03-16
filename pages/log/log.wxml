@@ -1,0 +1,40 @@
+<!--pages/log/log.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">日志</view>
+</cu-custom>
+<view class="cu-timeline">
+
+	<view class="cu-item text-green">
+		<view class="bg-gradual-blue content shadow">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-white text-green">v2.0.0</view>
+				<view class="cu-tag line-white">2020/03/16</view>
+			</view>
+			<view class="margin-top-sm text-content">
+				<view>·U蹭课 功能优化</view>
+				<view>·A新增 我的课表功能</view>
+				<view>·A新增 我的成绩功能</view>
+				<view>·A新增 自习室功能</view>
+				<view>·A新增 考场功能</view>
+				<view>·A新增 评教功能</view>
+				<view>·A新增 绩点计算器功能</view>
+				<!-- <view>·A新增我的课表功能</view> -->
+			</view>
+		</view>
+	</view>
+	<view class="cu-item text-green">
+		<view class="bg-gradual-blue content shadow">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-white text-green">v1.0.0</view>
+				<view class="cu-tag line-white">2019/10/02</view>
+			</view>
+			<view class="margin-top-sm text-content">
+				<view>1.0版本上线</view>
+				<view>感谢ColorUI作者的开源</view>
+				<view>功能</view>
+				<view>·A新增 蹭课功能</view>
+			</view>
+		</view>
+	</view>
+</view>

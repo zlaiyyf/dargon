@@ -1,0 +1,124 @@
+<!--pages/user/user.wxml-->
+
+<view class="UCenter-bg">
+	<open-data class="icon" mode="widthFix" type="userAvatarUrl"></open-data>
+
+	<view class="margin-top-sm">
+		<open-data type="userNickName"></open-data>
+	</view>
+	<view class="margin-top-sm ">
+		<text class="text-purple  margin-right-sm ">{{is_bind?"账号："+land_account:"未登录"}}</text>
+		<text wx:if="{{is_bind? true:false}}"  bindtap="bind_look_password" class="cuIcon-attentionfill"></text>
+
+	</view>
+	<image src="/image/bg/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+</view>
+
+<view wx:if='{{logining}}' class="cu-list menu card-menu margin-top-lg margin-bottom-lg shadow-lg radius">
+
+	<view class="cu-item arrow ">
+		<view bindtap="tz_land" class="content" url="/pages/about/about/about" hover-class="none">
+			<text class="cuIcon-peoplefill text-black"></text>
+
+			<text class="text-grey">{{is_bind?"切换账号":"点击前往绑定"}}</text>
+
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<navigator class="content" url="/pages/log/log" hover-class="none">
+			<text class="cuIcon-formfill text-green"></text>
+			<text class="text-grey">日志</text>
+		</navigator>
+	</view>
+	<view class="cu-item arrow">
+		<view class="content" bindtap="showQrcode">
+			<text class="cuIcon-appreciatefill text-red"></text>
+			<text class="text-grey">赞赏支持</text>
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<button class="cu-btn content" open-type="feedback">
+			<text class="cuIcon-writefill text-cyan"></text>
+			<text class="text-grey">意见反馈</text>
+		</button>
+	</view>
+		<view class="cu-item arrow">
+		<button class="cu-btn content" open-type="share">
+			<text class="cuIcon-share text-yellow"></text>
+			<text class="text-grey">分享给朋友</text>
+		</button>
+	</view>
+	<view class="cu-item arrow">
+		<navigator class="content" url="/pages/about/about" hover-class="none">
+			<text class="cuIcon-creativefill text-orange"></text>
+			<text class="text-grey">关于</text>
+		</navigator>
+	</view>
+</view>
+<!-- 登录 -->
+<view wx:if='{{!logining}}' class="cu-list menu card-menu  margin-top-lg margin-bottom-lg shadow-lg radius">
+	<view class="cu-form-group grid col-3">
+		<!-- <text class="cuIcon-infofill "></text> -->
+		<text bindtap="tz_land" class="cuIcon-back"></text>
+		<text>绑定账号</text>
+		<text bindtap="bind_question" class="cuIcon-questionfill "></text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">账号</view>
+		<input bindinput="bindinput_account" type="number" maxlength="12" placeholder="教务网登录账号"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密码</view>
+		<input bindinput="bindinput_password" placeholder="教务网登录密码" password="{{password_look}}"></input>
+		<text bindtap="bp_password_look" class="{{password_look?'cuIcon-attentionforbidfill':'cuIcon-attentionfill'}} text-orange"></text>
+
+	</view>
+	<view class="cu-form-group">
+		<image bindtap="but_imag" class="radius title" style="width: 120rpx; height: 40rpx" src="{{image}}"></image>
+		<input bindinput="bindinput_yzm" placeholder="请输入验证码"></input>
+		<button bindtap="but_land" class="cu-btn bg-green shadow ">登录</button>
+	</view>
+
+</view>
+
+<!-- 帮助 -->
+<view class="cu-modal {{modalName=='help'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">注意事项</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl bg-white">
+			<view class="flex  text-left">
+				1.新生登录密码为学号后六位
+			</view>
+			<view class="flex bg-white text-left">
+				2.现在仅限山大本科学生认证登录（其他群体暂时没有做，如果需要请反馈给我）
+			</view>
+			<view class="flex bg-white text-left">
+				3.登录成功之后，小程序将会把你的账号密码储存在本地缓存，服务器不会存储你的任何信息）
+			</view>
+		</view>
+
+	</view>
+</view>
+
+<!-- 显示登录的账号密码 -->
+<view class="cu-modal {{modalName=='look_password'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">查看当前登录的账号信息</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl bg-white">
+      <view class="content">账号：{{land_account}}</view>
+			<view class="content">密码：{{land_password}}</view>
+    </view>
+  </view>
+</view>
+
+

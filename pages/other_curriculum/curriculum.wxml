@@ -1,0 +1,177 @@
+<!--pages/other_curriculum/curriculum.wxml-->
+<!-- 蹭课 -->
+<wxs src="../component/trim.wxs" module="trim" />
+
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">山西大学蹭课利器</view>
+</cu-custom>
+<scroll-view scroll-x class="bg-white nav text-center">
+	<view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{tab_list}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+		{{item}}
+	</view>
+</scroll-view>
+<view class="bg-white padding-xs">
+	<radio-group class="padding-xs" style="width:100%" bindchange="form_bindchange">
+		<view class="grid col-3 text-center">
+			<view class="padding-xs">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">周课表</view>
+					<radio value='1' style="transform:scale(0.7)"></radio>
+				</view>
+			</view>
+			<view class="padding-xs">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">日课表</view>
+					<radio  value='2'  style="transform:scale(0.7)"></radio>
+				</view>
+			</view>
+			<view class="padding-xs">
+				<view class="cu-form-group" style="min-height: 0rpx">
+					<view class="text-sm">节课表</view>
+					<radio style="transform:scale(0.7) " value='3' checked></radio>
+				</view>
+			</view>
+		</view>
+	</radio-group>
+</view>
+<view class="grid col-3 text-center">
+	<view class="cu-form-group ">
+		<view class="title">周</view>
+		<picker bindchange="zc_bindchange" value="{{zc_index}}" range="{{zc_dict.key}}" >
+			<view class="picker">
+				{{zc_index?zc_dict.key[zc_index]:'第1周'}}
+			</view>
+		</picker>
+	</view>
+
+	<view class="cu-form-group ">
+		<view class="title">日</view>
+		<picker bindchange="xq_bindchange" value="{{xq_index}}" range="{{xq_dict.key}}" disabled='{{xq_disabled}}'>
+			<view class="picker">
+				{{xq_index?xq_dict.key[xq_index]:'星期一'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title">节</view>
+		<picker bindchange="jc_bindchange" value="{{jc_index}}" range="{{jc_dict.key}}" disabled='{{jc_disabled}}'>
+			<view class="picker">
+		{{jc_index?jc_dict.key[jc_index]:'第1小节'}}			</view>
+		</picker>
+	</view>
+</view>
+
+	<view class="flex  p-xs  mb-sm">
+		<view class="cu-form-group" style="padding:2rpx 0rpx  2rpx 30rpx">
+		<view class="title ">{{form_name[TabCur]}}</view>
+		<input class='solids-bottom' bindinput="fuzzy_bindinput" placeholder="模糊搜索"></input>
+	</view>
+	<view class="cu-form-group" wx:if="{{TabCur==0}}">
+	<!-- <view class="title">{{form_name[TabCur]}}</view> -->
+	<picker bindchange="bj_bindchange" value="{{bj_index}}" range="{{bj_se_dict.key.length == 0?bj_dict.key:bj_se_dict.key}}">
+		<view class="picker">
+	{{bj_se_dict.key.length == 0? trim.trim(bj_dict.key[bj_index]) :trim.trim( bj_se_dict.key[bj_index])}}		</view>
+	</picker>
+</view>
+<view class="cu-form-group" wx:if="{{TabCur==1}}">
+	<!-- <view class="title">{{form_name[TabCur]}}</view> -->
+	<picker bindchange="js_bindchange" value="{{js_index}}" range="{{js_se_dict.key.length == 0?js_dict.key:js_se_dict.key}}">
+		<view class="picker">
+	{{js_se_dict.key.length == 0? trim.trim(js_dict.key[js_index]) : trim.trim(js_se_dict.key[js_index])}}	
+		</view>
+	</picker>
+</view>
+
+<view class="cu-form-group" wx:if="{{TabCur==2}}">
+	<!-- <view class="title">{{form_name[TabCur]}}</view> -->
+	<picker bindchange="kc_bindchange" value="{{kc_index}}" range="{{kc_se_dict.key.length == 0?kc_dict.key:kc_se_dict.key}}">
+		<view class="picker">
+			{{kc_se_dict.key.length == 0? trim.trim(kc_dict.key[kc_index]) : trim.trim(kc_se_dict.key[kc_index])}}
+
+			<!-- {{kc_index?trim.trim(kc_dict.key[kc_index]):trim.trim(kc_dict.key[kc_index])}} -->
+		</view>
+	</picker>
+</view>
+
+</view>
+<view class="cu-form-group">
+	<view class="title ">
+		<image bindtap="but_imag" style="width: 160rpx; height: 40rpx" src="{{image}}"></image>
+	</view> 
+	<input maxlength="4" class="solids-bottom margin-right-sm" bindinput="bindinput_yzm" placeholder="请输入验证码"></input>
+	<button class="cu-btn bg-green shadow" bindtap="but_define">确定</button>
+</view>
+
+<view class="padding-xs bg-white text-xs" style="padding: 0rpx" wx:if="{{error}}">
+	<view class="text-center padding-xs text-red" style="padding: 0rpx">{{error}}</view>
+</view>
+
+<view class='border-line'></view>
+
+<block wx:for="{{class_data}}" wx:key="index" >
+  <view class="cu-bar bg-white solids-top" >
+    <view class="action ">
+      <text class="cuIcon-title text-black "></text>
+      <view class=' margin-right-sm'>{{ trim.trim(item.course) }} </view> 
+      <view class=''>{{trim.jc_trim( item.session)}} </view>
+      <!--  -->
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow sm" data-index="{{index}}" bindtap="showModal" data-target="Modal">查看详情</button>
+    </view>
+  </view>
+  <view class="cu-modal {{Modal==index?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">课程详情</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl ">
+      <view class="flex">
+        <view class="flex-sub ">课程</view>
+        <view class="flex-sub text-left">{{item.course}}</view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub  ">地点</view>
+        <view class="flex-sub  text-left">{{item.location}}</view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub">节次	</view>
+        <view class="flex-sub text-left">{{item.session}}</view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub ">任课教师</view>
+        <view class="flex-sub text-left">{{item.teacher}}</view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub ">上课班号</view>
+        <view class="flex-sub text-left">{{item.classnum}}</view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub ">人数</view>
+        <view class="flex-sub text-left">{{item.peoplenum}}</view>
+      </view>
+      
+      <view class="flex">
+        <view class="flex-sub">行政班级</view>
+        <view class="flex-sub text-left">{{item.classname}}</view>
+      </view>
+      </view>
+    </view>
+  </view>
+</block>
+<view wx:if ="{{class_data.length == 0? true:false}}">
+
+<view class="flex-sub text-center">
+      <view class="solid-bottom text-lg padding">
+        <text class="text-black">小主今天没有课哦</text>
+      </view>
+      <view class="padding"> ≧◠◡◠≦✌
+      </view>
+ </view>
+</view>
+
+<!-- <text>pages/other_curriculum/curriculum.wxml</text> -->

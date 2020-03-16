@@ -1,0 +1,4 @@
+/* pages/study_room/study_room.wxss */
+page{
+  background-color: white;
+}

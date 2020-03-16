@@ -1,0 +1,85 @@
+<!--pages/my_curriculum/curriculum.wxml-->
+<!-- 我的课表 -->
+
+<cu-custom bgColor="bg-cyan" isCustom="{{back_show? false : true}}" isBack="{{back_show? true : false}}">
+	<view slot="content">我的课表</view>
+	<view wx:if="{{back_show}}" slot="backText">返回</view>
+	            <!-- <view wx:if="{{!back_show}}" slot="homeText">首页</view> -->
+
+</cu-custom>
+<!-- 选择课表样式 -->
+
+<view class="flex bg-white solids-bottom">
+	<view class="flex-twice bg-white padding-xs margin-xs radius">
+		<radio-group bindchange="bindchange">
+			<view class="flex   justify-between">
+				<view class=" padding-xs margin-xs radius">
+					<view class="flex">
+						<view class="padding-right-xs">格式一</view>
+						<radio value="0" checked style="transform:scale(0.7)"></radio>
+					</view>
+				</view>
+				<view class=" padding-xs margin-xs radius">
+					<view class="flex">
+						<view class="padding-right-xs">格式二</view>
+						<radio value="1" style="transform:scale(0.7)"></radio>
+					</view>
+				</view>
+			</view>
+		</radio-group>
+	</view>
+
+	<view class="flex-sub   radius ">
+		<view class="">
+			<view class="flex  padding justify-end">
+				<!-- <view class="bg-grey padding-sm margin-xs radius">end</view> -->
+				<view bindtap="bindtap_updata" class="radius"><button class="cu-btn bg-blue round sm">更新</button></view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <view class=" text-xs">
+			点击课表可以放大查看详情 
+			</view> 
+    </view>
+
+  </view>
+
+
+<!-- 课表内容 -->
+<view wx:if="{{rad==0? true : false}}" class="padding-bottom-sm padding-top-sm bg-white">
+	<image style="width:100%" src="{{cur_list[rad]}}" bindtap="preview" mode="widthFix "> </image>
+	<view class="padding bg-white">
+		<view class="flex flex-wrap" wx:if="{{mes}}">
+			<view>备注：</view>
+			<view wx:for="{{mes}}" wx:key="id">{{item}}</view>
+			<!-- <view>2、[31270012]高频电子线路课程设计 第17周 刁少岚</view> -->
+		</view>
+	</view>
+</view>
+ <view wx:if="{{rad==0 ? false : true}}" class="padding-bottom-sm padding-top-sm bg-white">
+	<image style="width:100%" src="{{cur_list[rad]}}" bindtap="preview" mode="widthFix "> </image>
+</view>
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+	<view class="cu-dialog" style="width: 600rpx">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content text-red"><text class="text-xs">{{error_tip}}</text></view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xs">
+			<view class="cu-form-group flex">
+				<view class="title ">
+					<image bindtap="but_imag" style="width: 200rpx; height: 44rpx" src="{{image}}"></image>
+				</view>
+
+				<input maxlength="4" class="solids-bottom margin-right-sm" bindinput="bindinput_yzm" placeholder="验证码"></input>
+				<button class="cu-btn bg-green " bindtap="but_fix" disabled="{{but_stu}}">确定</button>
+			</view>
+		</view>
+	</view>
+</view>
