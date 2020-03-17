@@ -1,9 +1,9 @@
 {
   "pages": [ 
     "pages/index/index",
-
+    "pages/Sign/Sign",
+    "pages/essaydetail/essaydetail",
     "pages/school_cal/school_cal",
-
     "pages/study_room/study_room",
     "pages/grade/grade",
     "pages/other_curriculum/curriculum",
@@ -30,6 +30,12 @@
         "text": "首页",
         "iconPath": "image/tabbar/index.png",
         "selectedIconPath": "image/tabbar/index1.png"
+      },
+      {
+        "pagePath": "pages/Sign/Sign",
+        "text": "校园公告",
+        "iconPath": "image/tabbar/mes.png",
+        "selectedIconPath": "image/tabbar/mes1.png"
       },
       {
         "pagePath": "pages/user/user",

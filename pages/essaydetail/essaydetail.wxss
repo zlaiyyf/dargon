@@ -1,0 +1,4 @@
+/* pages/essaydetail/essaydetail.wxss */
+page{
+background-color: white
+}

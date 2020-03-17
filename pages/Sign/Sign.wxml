@@ -1,0 +1,40 @@
+<!--pages/Sign/Sign.wxml-->
+<!-- <cu-custom bgColor="bg-cyan" >
+  <view slot="content">山大资讯</view>
+</cu-custom> -->
+
+<cu-custom bgColor="bg-cyan" >
+
+	<view slot="content">山大校园公告</view>
+</cu-custom>
+
+<scroll-view scroll-x class="bg-cyan nav text-center " scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{Tablist}}" bindtap="tabSelect" wx:key="key" data-id="{{index}}">
+    {{item}}
+  </view>
+</scroll-view>
+
+<view class="basis-sm bg-cyan">
+  <!-- <view class=" bg-grey margin-xs padding-sm radius">xs(20%)</view> -->
+  <image src="/image/bg/wave.gif" mode="scaleToFill" class="gif-black response" style="height:25rpx"></image>
+</view>
+
+
+<scroll-view class="zdy_index" scroll-y scroll-with-animation bindscrolltolower="bindscrolltolower" scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - {{CustomBar}}px - 50px - 25rpx)">
+  <block wx:for="{{essay_list}}" wx:key="essay_id" data-id="{{item.essay_id}}" >
+    <view class="zyd-cu-item">
+      <view class="content">
+        <view class="text-grey">{{item.essay_ab_title}}{{index}}</view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">{{item.essay_time}}</view>
+      </view>
+    </view>
+  </block>
+
+
+  <!-- <block wx:if="{{loadhide}}" bindchange='isLoading'> -->
+    <view class="cu-load  {{!isLoad?'loading':'over'}}"></view>
+  <!-- </block> -->
+</scroll-view>
+

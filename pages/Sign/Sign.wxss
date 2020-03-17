@@ -1,0 +1,27 @@
+@import "../../colorui/animation.wxss";
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+
+.indexes {
+  position: relative;
+}
+
+.zyd-cu-item {
+  border-radius:30rpx;
+  position: relative;
+  display: flex;
+  padding: 0 30rpx;
+  min-height: 100rpx;
+  background-color: var(--white);
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.zdy_index {
+  display: block;
+  overflow: hidden;
+}

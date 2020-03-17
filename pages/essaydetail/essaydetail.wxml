@@ -1,0 +1,41 @@
+<!--pages/essaydetail/essaydetail.wxml-->
+<cu-custom bgColor="bg-cyan">
+  <view slot="content">V山大-咨询</view>
+</cu-custom>
+<view class="bg-white">
+
+  <view class="flex-sub text-center">
+    <view class="solid-bottom text-xl padding">
+      <text class="text-black text-bold">{{essay_title}}</text>
+    </view>
+  </view>
+
+  <view class="flex-sub text-left">
+    <view class="solid-bottom text-df padding">
+      <text class="text-black text-bold">{{essay_content}}</text>
+    </view>
+    <view class="cu-bar  bg-white "></view>
+
+  </view>
+  <view class="cu-bar foot bg-white " style="bottom:{{InputBottom}}px">
+
+    <view class="flex-sub radius" catch:tap="catchindex">
+      <view class='text-center'>
+        <text class="cuIcon-homefill  text-cyan"></text>
+      </view>
+      <view class=" text-center">
+        <text class=" xl text-cyan ">主页</text>
+      </view>
+    </view>
+    <button class=" flex-sub radius cu-btn block bg-white lg " open-type="share">
+      <view class="flex-sub text-df ">
+        <view class='text-center ' style="margin-bottom: 10rpx">
+          <text class="cuIcon-share  text-cyan "></text>
+        </view>
+        <view class="text-center ">
+          <text class="text-cyan ">分享</text>
+        </view>
+      </view>
+    </button>
+  </view>
+</view>
