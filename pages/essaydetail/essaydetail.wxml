@@ -1,7 +1,16 @@
 <!--pages/essaydetail/essaydetail.wxml-->
-<cu-custom bgColor="bg-cyan">
+<!-- <cu-custom bgColor="bg-cyan">
   <view slot="content">V山大-咨询</view>
+</cu-custom> -->
+
+
+<cu-custom bgColor="bg-cyan" isCustom="{{back_show? false : true}}" isBack="{{back_show? true :false}}">
+	<view slot="content">公告详情</view>
+	<view wx:if="{{back_show}}" slot="backText">返回</view>
+
+
 </cu-custom>
+
 <view class="bg-white">
 
   <view class="flex-sub text-center">
@@ -12,11 +21,13 @@
 
   <view class="flex-sub text-left">
     <view class="solid-bottom text-df padding">
-      <text class="text-black text-bold">{{essay_content}}</text>
+      <text class="text-black">{{essay_content}}</text>
     </view>
     <view class="cu-bar  bg-white "></view>
 
   </view>
+
+  
   <view class="cu-bar foot bg-white " style="bottom:{{InputBottom}}px">
 
     <view class="flex-sub radius" catch:tap="catchindex">

@@ -1,0 +1,11 @@
+<!--utils/weltearh.wxml-->
+<view class="margin-bottom-sm cu-list grid margin-lr-xs col-3 no-border shadow-warp" style="border-radius:30rpx;">    
+<view class="" >第{{zc}}周</view> 
+<view class="" ></view> 
+<view class="" >{{xqs_name}}</view> 
+
+<view class="" >今天天气：{{to}}</view> 
+<view class="" ></view> 
+<view class="" >明天天气：{{tor}}</view> 
+</view>
+

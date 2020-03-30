@@ -2,10 +2,9 @@
 <!-- <cu-custom bgColor="bg-cyan" >
   <view slot="content">山大资讯</view>
 </cu-custom> -->
+<wxs src="../component/trim.wxs" module="trim" />
 
-<cu-custom bgColor="bg-cyan" >
-
-	<view slot="content">山大校园公告</view>
+<cu-custom bgColor="bg-cyan" >	<view slot="content">山大校园公告</view>
 </cu-custom>
 
 <scroll-view scroll-x class="bg-cyan nav text-center " scroll-with-animation scroll-left="{{scrollLeft}}">
@@ -21,20 +20,21 @@
 
 
 <scroll-view class="zdy_index" scroll-y scroll-with-animation bindscrolltolower="bindscrolltolower" scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - {{CustomBar}}px - 50px - 25rpx)">
-  <block wx:for="{{essay_list}}" wx:key="essay_id" data-id="{{item.essay_id}}" >
+
+  <block wx:for="{{essay_list._list}}" wx:key="essay_id" data-id="{{item.essay_id}}" >
+  <navigator url='{{"/pages/essaydetail/essaydetail?sort="+essay_list.sort+"&id="+item.essay_id}}' open-type="navigate" hover-class="navigator-hover">
     <view class="zyd-cu-item">
       <view class="content">
-        <view class="text-grey">{{item.essay_ab_title}}{{index}}</view>
+        <view class="text-grey">{{ trim.essay_trim(item.essay_ab_title) }}</view>
       </view>
       <view class="action">
         <view class="text-grey text-xs">{{item.essay_time}}</view>
       </view>
     </view>
+     </navigator>
   </block>
-
-
   <!-- <block wx:if="{{loadhide}}" bindchange='isLoading'> -->
-    <view class="cu-load  {{!isLoad?'loading':'over'}}"></view>
+    <view class="cu-load  {{essay_list.next?'loading':'over'}}"></view>
   <!-- </block> -->
 </scroll-view>
 

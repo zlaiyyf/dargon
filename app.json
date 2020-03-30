@@ -21,7 +21,8 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "wea": "/utils/weather"
   },
   "tabBar": {
     "selectedColor": "#1cbbb4",
@@ -34,8 +35,8 @@
       {
         "pagePath": "pages/Sign/Sign",
         "text": "校园公告",
-        "iconPath": "image/tabbar/mes.png",
-        "selectedIconPath": "image/tabbar/mes1.png"
+        "iconPath": "image/tabbar/mes0.png",
+        "selectedIconPath": "image/tabbar/mes3.png"
       },
       {
         "pagePath": "pages/user/user",
@@ -47,7 +48,8 @@
   },
   "navigateToMiniProgramAppIdList": [
     "wx93c6ff99177729b7",
-    "wx9f4525d552f0debc"
+    "wx9f4525d552f0debc",
+    "wxb036cafe2994d7d0"
   ],
   "sitemapLocation": "sitemap.json"
 }

@@ -56,32 +56,40 @@ Page({
       name: '免挂头像',
       url:  "/pages/log/log",
     }, {
+      icon: 'friendfill',
+      color: 'orange',
+      name: '校友圈',
+      url:   "/pages/about/about",
+    }, {
       icon: 'brandfill',
       color: 'pink',
       name: '更新日志',
-      url:  "/pages/log/log",
-
-      
-    }, {
-      icon: 'lightfill',
-      color: 'orange',
-      name: '关联小程序',
-      url:   "/pages/about/about",
-
-    }],
+      url:  "/pages/log/log",  
+    },],
   
     swiperList: [{
       id: 0,
       type: 'image',
-      url: '/image/bg/index.png'
+      url:'https://im.zlaiyyf.cn/bd/index.png'
+      // url: '/image/bg/index.png'
     }, {
       id: 1,
       type: 'image',
-      url: '/image/bg/index.png',
+      url:'https://im.zlaiyyf.cn/bd/index1.jpg'
+
+      // url: '/image/bg/index2.png',
+    }, {
+      id: 2,
+      type: 'image',
+      url:'https://im.zlaiyyf.cn/bd/index2.jpg'
+
+      // url: '/image/bg/index2.png',
     }, {
       id: 3,
       type: 'image',
-      url: '/image/bg/index.png',
+      url:'https://im.zlaiyyf.cn/bd/index4.png'
+
+      // url: '/image/bg/index2.png',
     }]
 
   },
@@ -134,7 +142,22 @@ Page({
         }
       })
       return
-    }
+    }else if (index==10){
+      wx.navigateToMiniProgram({
+        appId: 'wxb036cafe2994d7d0',
+        path: '/portal/group-profile/group-profile?group_id=13104376352615599&invite_ticket=BgAAE1hl6ZK1AtTkJInUeASJTQ&fromScene=bizArticle',
+        extraData: {
+          from: ''
+        },
+        envVersion: '',
+        success(res) {
+          // 打开其他小程序成功同步触发
+          wx.showToast({
+            title: ''
+          })
+        }
+      })
+      return}
     var icon=this.data.iconList[index]
     wx.navigateTo({
       url: icon.url,
@@ -147,9 +170,6 @@ Page({
      })
   
   },
-
-
-
 
   bind:function(){
     console.log('cd')

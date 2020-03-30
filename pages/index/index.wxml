@@ -4,7 +4,7 @@
 <swiper class="card-swiper square-dot"  indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#1cbbb4" indicator-active-color="#1cbbb4">
   <swiper-item wx:for="{{swiperList}}" bindtap="bind_sw" wx:key="url" data-index="{{item.id}}">
     <view class="swiper-item">
-      <image src="/image/bg/index.png" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
     </view>
   </swiper-item>
 </swiper>
@@ -16,6 +16,7 @@
     </view>
   </swiper-item>
 </swiper> -->
+<wea></wea>
 <!-- 菜单 -->
 <view class="cu-list grid margin-lr-xs col-4 no-border shadow-warp" style="border-radius:30rpx;">
   <view class="cu-item" wx:for="{{iconList}}" wx:key="*this" >

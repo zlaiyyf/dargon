@@ -24,11 +24,23 @@ function jc_trim(jx_name) {
     return jx_name + ' '
   } else {
     var ret = jx_name.slice(0,7) + '...'
-    console.log(ret.length)
+    // console.log(ret.length)
+    return ret
+  }
+}
+function essay_trim(jx_name) {
+
+  if (jx_name.length <=20) {
+
+    return jx_name
+  } else {
+    var ret = jx_name.substring(0,20) + '...'
+    // console.log(ret.length)
     return ret
   }
 }
 module.exports = {
   jc_trim: jc_trim,
   trim: trim,
+  essay_trim:essay_trim,
 };

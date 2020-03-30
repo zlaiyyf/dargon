@@ -26,6 +26,34 @@ Page({
   },
   // 登录
   but_land: function (e) {
+    if (this.data.input_account.length ==0){
+      wx.showToast({
+        title: '未输入账号',
+        icon: 'none',
+        duration: 1500
+      })
+       return
+
+     }
+     if (this.data.input_password.length ==0){
+      wx.showToast({
+        title: '未输入密码',
+        icon: 'none',
+        duration: 1500
+      })
+       return
+
+     }
+    if (this.data.input_yzm.length ==0){
+      wx.showToast({
+        title: '未输入验证码',
+        icon: 'none',
+        duration: 1500
+      })
+       return
+
+     }
+    
     setTimeout(function () {
       return
      }, 1000) 

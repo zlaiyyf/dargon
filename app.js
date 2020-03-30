@@ -159,7 +159,7 @@ App({
     g_key: '',
     // 
     g_openid: '',
-
+// bkjwsxu.cnhttps://zlaiyyf.cn/
     g_url: 'https://zlaiyyf.cn/',
     g_imurl: 'https://im.zlaiyyf.cn/',
     g_username: '',
