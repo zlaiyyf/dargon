@@ -170,6 +170,7 @@ Page({
             success: res => {
               // console.log(res.data)
               var data = res.data.data
+              console.log(data.mes)
               // http://im.bkjwsxu.cn/gd/2020-03-13/201702701139/15841002130241560.png
               // // this.data.im_url + 'cur/' + data.dir + '/' + data.usesname + '/' + data['image'][1] +
               // '.png'

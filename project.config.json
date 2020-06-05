@@ -21,7 +21,9 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.0",
@@ -32,7 +34,9 @@
 	},
 	"isGameTourist": false,
 	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"simulatorPluginLibVersion": {
+		"qywx_simulator_plugin": "2.4.0"
+	},
 	"condition": {
 		"search": {
 			"current": -1,
