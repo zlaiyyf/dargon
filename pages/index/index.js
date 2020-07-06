@@ -197,14 +197,14 @@ Page({
     })
   },
   onLoad: function () {
-    if (wx.createInterstitialAd) {
-      interstitialAd = wx.createInterstitialAd({
-        adUnitId: 'adunit-3427ab23a24dfc0e'
-      })
-      interstitialAd.onLoad(() => {})
-      interstitialAd.onError((err) => {})
-      interstitialAd.onClose(() => {})
-    }
+    // if (wx.createInterstitialAd) {
+    //   interstitialAd = wx.createInterstitialAd({
+    //     adUnitId: 'adunit-3427ab23a24dfc0e'
+    //   })
+    //   interstitialAd.onLoad(() => {})
+    //   interstitialAd.onError((err) => {})
+    //   interstitialAd.onClose(() => {})
+    // }
     
     
   },
