@@ -48,7 +48,7 @@ Page({
       wx.showToast({
         title: '未输入验证码',
         icon: 'none',
-        duration: 1500
+        duration: 1800
       })
        return
 
@@ -56,7 +56,7 @@ Page({
     
     setTimeout(function () {
       return
-     }, 1000) 
+     }, 1500) 
     wx.request({
       url: app.globalData.g_url+'v1/login',
       method: 'POST',

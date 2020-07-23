@@ -197,19 +197,21 @@ Page({
     })
   },
   onLoad: function () {
-    // if (wx.createInterstitialAd) {
-    //   interstitialAd = wx.createInterstitialAd({
-    //     adUnitId: 'adunit-3427ab23a24dfc0e'
-    //   })
-    //   interstitialAd.onLoad(() => {})
-    //   interstitialAd.onError((err) => {})
-    //   interstitialAd.onClose(() => {})
-    // }
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-3427ab23a24dfc0e'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+    
     
     
   },
   onShow:function(){
     
+// 在适合的场景显示插屏广告
 // 在适合的场景显示插屏广告
 if (interstitialAd) {
   interstitialAd.show().catch((err) => {
@@ -233,5 +235,12 @@ if (interstitialAd) {
       // imageUrl: 'http://static.e-mallchina.com/pic/product/brand/detail/hgds.jpg'//自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径。支持PNG及JPG。显示图片长宽比是 5:4。
     }
 
+  },
+  onShareTimeline:function(){
+    return {
+      title: '在山大必备小助手-龙城山大plus',
+      path: '/pages/index/index',
+      // imageUrl: 'http://static.e-mallchina.com/pic/product/brand/detail/hgds.jpg'//自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径。支持PNG及JPG。显示图片长宽比是 5:4。
+    }
   }
 })

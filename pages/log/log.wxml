@@ -7,6 +7,20 @@
 	<view class="cu-item text-green">
 		<view class="bg-gradual-blue content shadow">
 			<view class="cu-capsule radius">
+				<view class="cu-tag bg-white text-green">v2.2.3</view>
+				<view class="cu-tag line-white">2020/07/16</view>
+			</view>
+			<view class="margin-top-sm text-content">
+				<view>·U优化 登录功能优化</view>
+				<view>·A新增 校园公告分享朋友圈功能</view>
+				
+				<!-- <view>·A新增我的课表功能</view> -->
+			</view>
+		</view>
+	</view>
+	<view class="cu-item text-green">
+		<view class="bg-gradual-blue content shadow">
+			<view class="cu-capsule radius">
 				<view class="cu-tag bg-white text-green">v2.1.0</view>
 				<view class="cu-tag line-white">2020/04/01</view>
 			</view>

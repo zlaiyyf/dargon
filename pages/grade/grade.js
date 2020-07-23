@@ -81,7 +81,7 @@ Page({
         key: 'key'
       },
       success: res => {
-        // console.log(res)
+        // console.log(res.data.data.image)
         this.data.image = res.data.data.image;
         this.setData({
           image: res.data.data.image,
@@ -103,7 +103,7 @@ Page({
 
     setTimeout(function () {
       return
-    }, 1000)
+    }, 2000)
     if (this.data.yzm.length != 4) {
       wx.showToast({
         title: '验证码错误',
@@ -145,7 +145,7 @@ Page({
         'cookies': JSON.stringify(this.data.cookies)
       },
       success: res => {
-        // console.log(res.data)
+        console.log(this.data.yzm)
         // 获取信息
         if (res.data.code == 200) {
 
@@ -171,10 +171,7 @@ Page({
               // console.log(res.data)
               var data = res.data.data
               console.log(data.mes)
-              // http://im.bkjwsxu.cn/gd/2020-03-13/201702701139/15841002130241560.png
-              // // this.data.im_url + 'cur/' + data.dir + '/' + data.usesname + '/' + data['image'][1] +
-              // '.png'
-              // console.log(data.mes)
+
               if (res.data.code == 200) {
                 var grade_data = {
                   image: data.image,

@@ -156,5 +156,12 @@ Page({
 
 
     return shareObj;
-  }
+  },
+  onShareTimeline:function(){
+    var that = this;　
+    return {
+      title: that.data.essay_title,
+      path: '/pages/essaydetail/essaydetail?sort='+that.data.sort+'&id='+that.data.id,
+      // imageUrl: 'http://static.e-mallchina.com/pic/product/brand/detail/hgds.jpg'//自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径。支持PNG及JPG。显示图片长宽比是 5:4。
+    }}
 })

@@ -284,6 +284,7 @@ Page({
     }
     // 填充课程 教师 价值
     moban_data['txt_yzm']=this.data.yzm
+    console.log(moban_data['txt_yzm'])
     if (this.data.TabCur ==0){
       // 当前为班级
       var bj_index=this.data.bj_index
