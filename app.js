@@ -160,8 +160,8 @@ App({
     // 
     g_openid: '',
 // bkjwsxu.cnhttps://zlaiyyf.cn/
-    g_url: 'https://zlaiyyf.cn/',
-    g_imurl: 'https://im.zlaiyyf.cn/',
+    g_url: '服务url',
+    g_imurl: '图片url',
     g_username: '',
     g_password: '',
     g_cur: {
